@@ -1,0 +1,12 @@
+<button (click)="addNotification()">Add Pausable Timer</button>
+
+
+<ng-container *ngFor="let key of keys">
+	<p>
+		Timer: {{notifications[key].obs.stepTimer | async}}
+	</p>
+	<p>{{time | async}}</p>
+	<button (click)="notifications[key].paused.next(true)">Pause</button>
+	<button (click)="notifications[key].paused.next(false)">Continue</button>
+	<button (click)="dismiss(notifications[key].id)">Dimiss</button>
+</ng-container>
